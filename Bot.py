@@ -1,3 +1,5 @@
+import discord
+import discord.ext
 @client.command()
 async def kick(ctx, user: discord.Member, *, reason=None):
   await user.kick(reason=reason)

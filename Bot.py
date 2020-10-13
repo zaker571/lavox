@@ -69,4 +69,4 @@ async def unban(ctx, *, member):
     user = ban_entry.user
 
 
-client.run(os.environ["DISCORD_TOKEN"])
+client.run(os.environ["token"])

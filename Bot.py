@@ -5,7 +5,7 @@ from discord.ext import commands
 client = commands.Bot("/")
 @client.event
 async def on_ready():
-        await client.change_presence(status=discord.Status.online,activity=discord.ActivityType.listening("Old Town Road"))
+        await client.change_presence(status=discord.Status.online,activity=discord.Game("Joy"))
         print("bot is ready.")
 
 @client.event
@@ -80,4 +80,4 @@ async def unban(ctx, *, member):
     user = ban_entry.user
 
 
-client.run("NzY1MjgyMjczOTY0NDU4MDI0.X4SiqA.0esp0Exp1pj7bclH2pjU-vu7R5I")
+client.run(os.environ["DISCORD_TOKEN"])

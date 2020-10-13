@@ -5,7 +5,7 @@ from discord.ext import commands
 client = commands.Bot("/")
 @client.event
 async def on_ready():
-        await client.change_presence(status=discord.Status.online,activity=discord.Game("Joy"))
+        await client.change_presence(status=discord.Status.online,activity=discord.ActivityType.listening("Old Town Road"))
         print("bot is ready.")
 
 @client.event
@@ -27,6 +27,17 @@ async def rolladice(ctx):
 @client.command()
 async def clear(ctx,AMOUNT=5):
     await ctx.channel.purge(limit = AMOUNT + 1)
+@client.event
+async def on_ready():
+    print(f'{client.user.name} has connected to The Server!')
+
+
+@client.event
+async def on_member_join(member):
+    await member.create_dm()
+    await member.dm_channel.send(
+        f'Hi {member.name}, welcome the server!'
+    )
 @client.command(aliases=["8Ball"])
 async def _8ball(ctx,*,question):
     responses = [
@@ -69,4 +80,4 @@ async def unban(ctx, *, member):
     user = ban_entry.user
 
 
-client.run(os.environ["token"])
+client.run("NzY1MjgyMjczOTY0NDU4MDI0.X4SiqA.0esp0Exp1pj7bclH2pjU-vu7R5I")
